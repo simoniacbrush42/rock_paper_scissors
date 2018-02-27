@@ -1,25 +1,50 @@
 puts "Welcome to rock paper scissors!!"
 
-def get_move(player)
-    puts "Player #{player} please enter your move"
-    return gets.chomp
+
+
+class Person 
+    
+    def initialize(player_number)
+        @player_number = player_number
+    end
+    
+    def name
+        @name
+    end
+    
+    def name=(name)
+        @name=name
+    end
+    
+    def move
+        @move
+    end
+    
+    def get_move
+        puts "Player #{@player_number} please enter your move"
+        @move = gets.chomp
+    end
 end
+ 
+ 
 
+player_one = Person.new("1")
+player_two = Person.new("2")
 
+player_one.get_move
+player_two.get_move
 
-player_one_move = get_move("1")
-player_two_move = get_move("2")
-puts "Player one #{player_one_move} and Player two threw #{player_two_move}"
-if player_one_move == player_two_move
+puts "Player one #{player_one.move} and Player two threw #{player_two.move}"
+if player_one.move == player_two.move
     puts "You tied"
 else
-    case player_one_move
+    case player_one.move
     when "rock"
-        puts player_two_move == "paper" ? "you lose" : "you win"
+        puts player_two.move == "paper" ? "you lose" : "you win"
     when "paper"
-        puts player_two_move == "scissors" ? "you lose" : "you win"
+        puts player_two.move == "scissors" ? "you lose" : "you win"
     when "scissors"
-        puts player_two_move == "paper" ? "you win" : "you lose"
+        puts player_two.move == "paper" ? "you win" : "you lose"
     end
 end
 
